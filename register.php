@@ -18,6 +18,7 @@
 
             <input type="text" name="username" placeholder="Username">
             <input type="text" name="fullname" placeholder="Full Name">
+            <!-- TODO: Fix white email and password boxes. -->
             <input type="email" name="email" placeholder="Email"> 
             <input type="password" name="password" placeholder="Password">
         

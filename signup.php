@@ -49,7 +49,7 @@ if (isset($_POST['register'])) {
     if ($stmt->execute()) {
         // TODO: Direct to page that will have just text that registration was successful 
         // and there is button to redirect user to index.html
-        header("Location index.html");
+        header("Location: index.html");
     } else {
         echo "Error: " . $stmt->errorInfo()[2];
     }
