@@ -130,6 +130,27 @@ case 'login':
             header("Location: view/new-entry.php");
         }
         break;
+    case "edit_entry":
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            header("Location: view/edit-entry.php");
+            exit();
+        }
+        else{           
+            if (isset($_GET['note_id'])) {
+                // Store the selected note ID in the $_SESSION variable
+                $_SESSION['selected_note_id'] = $_GET['note_id'];
+            }
+            header("Location: view/edit-entry.php");
+        }
+        break;
+    case "delete_note":
+        if (isset($_SESSION['selected_note_id'])) {
+            deleteNoteByID($_SESSION['selected_note_id']);
+            unset($_SESSION['selected_note_id']);
+        }
+
+        header("Location: view/main.php");
+        break;
 }
 
 ?>

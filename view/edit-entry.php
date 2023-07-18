@@ -1,5 +1,5 @@
 <?php
-// require_once '../model/notes.php';
+require_once '../model/notes.php';
 session_start();
 
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
@@ -9,6 +9,13 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 }
 
 $user = $_SESSION['username'];
+$noteID = $_SESSION['selected_note_id'];
+
+$note = getNote($noteID);
+// For the purpose of this example, let's assume we have a variable $noteContent that holds the content of the selected note
+$noteContent = $note['content'];
+$noteTitle = $note['title'];
+
 ?>
 
 <!DOCTYPE html>
@@ -24,17 +31,15 @@ $user = $_SESSION['username'];
 </head>
 
 <body class="text-xl w-full h-screen flex flex-col justify-center items-center">
-    <p class="text-5xl">new entry</p>
-    <form class="user-form" method="POST" action="../index.php?action=new_entry">
-        <input type="text" id="entry-title" name="new-title" placeholder="Title">
-        <input type="text" id="entry-text" name="new-content" placeholder="Tell how was your day today...">
-        <div class="flex flex-col items-center mt-8 gap-4 w-9/12 sm:flex-row sm:justify-around">
-            <a href="../index.php?action=main" class="button" type="cancel" class="mt-10">cancel</a>
-            <button class="button-secondary" type="submit" class="mt-10">create new entry</button>
-        </div>
-    </form>
+    <p class="text-5xl"><?php echo $noteTitle; ?></p>
 
+    <div class="note-content w-9/12 mt-8 p-4 bg-gray-100 rounded-lg">
+        <p class="text-lg"><?php echo $noteContent; ?></p>
+    </div>
 
+    <div class="flex items-center mt-8 gap-4">
+        <a href="../index.php?action=main" class="button" type="cancel">Go Back</a>
+        <a href="../index.php?action=delete_note" class="button-secondary">Delete Note</a>
     </div>
 </body>
 

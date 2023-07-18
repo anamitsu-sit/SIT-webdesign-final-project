@@ -36,12 +36,13 @@ $notes = getNotesForUser($user);
                 // Get the desired date format from the session
                 $date_format = $_SESSION['date_format'];
                 $date_timestamp = $note['date_created'];
+                $note_id = $note['ID'];
 
                 // Format the date based on the session's date format
                 $note_date = date($date_format, strtotime($date_timestamp));
                 ?>
                 <!-- TODO: Add page that display note, and allow you to delete it or edit? -->
-                <div class="button"><?php echo $note_date; ?></div>
+                <a class="button" href="../index.php?action=edit_entry&note_id=<?php echo $note_id; ?>"><?php echo $note_date; ?></a>
             <?php endforeach; ?>
         </div>
 

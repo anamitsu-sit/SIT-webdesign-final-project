@@ -5,7 +5,7 @@ function getNotesForUser($username)
 {
     $conn = createDatabaseConnection();
 
-    $query = "SELECT title, date_created FROM notes WHERE username = :username";
+    $query = "SELECT title, date_created, ID FROM notes WHERE username = :username";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':username', $username);
     $stmt->execute();
@@ -37,6 +37,40 @@ function createNewNote($username, $title, $content)
         return true; // Note creation successful
     } catch (PDOException $e) {
         return false; // Note creation failed
+    }
+}
+
+function getNote($noteID)
+{
+    $conn = createDatabaseConnection();
+
+    $query = "SELECT content, title FROM notes WHERE ID = :noteID";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':noteID', $noteID);
+    $stmt->execute();
+
+    $note = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($note) {
+        return $note;
+    } else {
+        return null; // Note not found
+    }
+}
+
+function deleteNoteByID($noteID)
+{
+    $conn = createDatabaseConnection();
+
+    $query = "DELETE FROM notes WHERE ID = :noteID";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':noteID', $noteID);
+
+    try {
+        $stmt->execute();
+        return true; // Note deletion successful
+    } catch (PDOException $e) {
+        return false; // Note deletion failed
     }
 }
 

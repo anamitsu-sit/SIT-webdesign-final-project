@@ -32,7 +32,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             <!-- TODO: Fix white email and password boxes. -->
             <input type="email" name="email" placeholder="Email"> 
             <input type="password" name="password" placeholder="Password">
-        
+            <!-- TODO: Add select form for data_format -->
             <button type="submit" name="register">Sign Up</button>
         </form>     
         <!-- TODO: Print error prettier! -->
