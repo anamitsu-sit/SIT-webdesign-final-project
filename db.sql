@@ -35,6 +35,22 @@ VALUES
     ('Norbert', 'Note 5', 'This is the content of Note 5.', '2023-07-20 14:20:35');
 
 
+INSERT INTO notes (username, title, content, date_created)
+VALUES
+    ('Test_1', 'Note 1', 'This is the content of Note 1.', '2023-07-01 12:34:56'),
+    ('Test_1', 'Note 2', 'This is the content of Note 2.', '2023-07-05 08:15:00'),
+    ('Test_1', 'Note 3', 'This is the content of Note 3.', '2023-07-10 18:45:22'),
+    ('Test_1', 'Note 4', 'This is the content of Note 4.', '2023-07-15 09:30:10'),
+    ('Test_1', 'Note 5', 'This is the content of Note 5.', '2023-07-20 14:20:35');
+
+    
+INSERT INTO notes (username, title, content, date_created)
+VALUES
+    ('Test_2', 'Note 1', 'This is the content of Note 1.', '2023-07-01 12:34:56'),
+    ('Test_2', 'Note 2', 'This is the content of Note 2.', '2023-07-05 08:15:00'),
+    ('Test_2', 'Note 3', 'This is the content of Note 3.', '2023-07-10 18:45:22'),
+    ('Test_2', 'Note 4', 'This is the content of Note 4.', '2023-07-15 09:30:10'),
+    ('Test_2', 'Note 5', 'This is the content of Note 5.', '2023-07-20 14:20:35');
 
 
 INSERT INTO notes (username, title, content, date_created)
