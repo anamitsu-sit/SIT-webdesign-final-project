@@ -13,11 +13,14 @@
 <body class="text-xl w-full h-screen flex justify-center items-center">
     <div class="main-banner-form">
         <p class="text-5xl">Log In</p>
-        <form class="user-form">
-            <input type="text" name="Username" placeholder="Username">
-            <input type="text" name="Password" placeholder="Password">
-            <button class="button-secondary" type="submit" class="mt-10">Log In</button>
+        <form class="user-form" action="login_verify.php" method="post">
+            <input type="text" name="username" placeholder="Username">
+            <!-- TODO: Fix white display of password -->
+            <input type="password" name="password" placeholder="Password">
+            <button class="button-secondary" type="submit" class="mt-10" name="login">Log In</button>
         </form>
+        <!-- TODO: Print error prettier! -->
+        <span class="error"><?php echo isset($_GET['err']) ? $_GET['err'] : ''; ?></span>
     </div>
 </body>
 

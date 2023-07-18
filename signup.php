@@ -25,6 +25,7 @@ if (isset($_POST['register'])) {
     if (!preg_match('/^[a-zA-Z0-9]+$/', $username)) {
         $err = 'Invalid username!';
         header("Location: register.php?err=$err");
+        exit();
     }
     // Sanitize fullname
     $fullname = filter_var($fullname, FILTER_SANITIZE_SPECIAL_CHARS);
@@ -32,6 +33,7 @@ if (isset($_POST['register'])) {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $err = 'Invalid email!';
         header("Location: register.php?err=$err");
+        exit();
     }  
 
     // Hash the password
