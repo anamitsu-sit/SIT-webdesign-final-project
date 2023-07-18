@@ -5,7 +5,7 @@ session_start();
 
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     // Redirect to login page if not logged in
-    header("Location: /final/index.php?action=login");
+    header("Location: ../index.php?action=login");
     exit();
 }
 
@@ -23,7 +23,7 @@ $notes = getNotesForUser($user);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/final/css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <title>Diary App</title>
 </head>
 
@@ -48,7 +48,7 @@ $notes = getNotesForUser($user);
         <a class="button-secondary" href="new-entry.html">Create New Entry</a>
 
         <!-- TODO: Make logout button prettier -->
-        <a class="button-secondary" href="/final/index.php?action=logout">Logout</a>
+        <a class="button-secondary" href="../index.php?action=logout">Logout</a>
     </div>
 </body>
 

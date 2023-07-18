@@ -34,14 +34,14 @@ case 'register':
         $date_format = 'date_format';
 
         if (!isUsernameValid($username)) {
-            $err = 'Invalid username!';
-            header("Location: /final/view/register.php?err=$err");
+            $err = 'Invalid usernamee!';
+            header("Location: view/register.php?err=$err");
             exit();
         }
 
         if (!isEmailValid($email)) {
-            $err = 'Invalid email!';
-            header("Location: /final/view/register.php?err=$err");
+            $err = 'Invalid emaill!';
+            header("Location: view/register.php?err=$err");
             exit();
         }
 
@@ -106,7 +106,7 @@ case 'login':
         session_destroy();
 
         // Redirect to the login page
-        header("Location: /final/index.php?action=welcome");
+        header("Location: index.php?action=welcome");
         break;
 
 }

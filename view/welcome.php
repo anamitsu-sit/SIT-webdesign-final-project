@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     // Redirect to login page if not logged in
-    header("Location: /final/index.php?action=main");
+    header("Location: ../index.php?action=main");
     exit();
 }
 ?>
@@ -15,7 +15,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/final/css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <title>Diary App</title>
 </head>
 
@@ -25,8 +25,8 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         <p>to your journaling application</p>
         <div
             class="main-banner-buttons flex flex-col justify-center items-center w-full max-w-screen-sm mt-6 mb-6 gap-y-4 sm:flex-row sm:text-l sm:justify-around">
-            <a class="button" href="/final/index.php?action=login">login</a>
-            <a class="button" href="/final/index.php?action=register">sign up</a>
+            <a class="button" href="../index.php?action=login">login</a>
+            <a class="button" href="../index.php?action=register">sign up</a>
         </div>
     </div>
 </body>
