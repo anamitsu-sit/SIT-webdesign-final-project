@@ -36,6 +36,19 @@ if (isset($_POST['register'])) {
         exit();
     }  
 
+    // Check if username exists
+    $query = "SELECT * FROM users WHERE username = :username";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+
+    
+    if ($stmt->rowCount() > 0) {
+        $err = 'Username is taken!';
+        header("Location: register.php?err=$err");
+        exit();
+    }
+
     // Hash the password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
