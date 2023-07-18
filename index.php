@@ -100,7 +100,8 @@ case 'login':
     case 'main':
         if ($_SESSION['logged_in'] === true) {
             // User is logged in, display the main view
-            require_once 'view/main.php';
+            header("Location: view/main.php");
+            exit();
         } else {
             // Redirect to login page if not logged in
             header("Location: view/login.php");
