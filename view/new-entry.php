@@ -27,6 +27,7 @@ $user = $_SESSION['username'];
     <p class="text-5xl">new entry</p>
     <form class="user-form" method="POST" action="../index.php?action=new_entry">
         <input type="text" id="entry-title" name="new-title" placeholder="Title">
+        <!-- TODO: When clicking shift+enter it should make new line, not confirm -->
         <input type="text" id="entry-text" name="new-content" placeholder="Tell how was your day today...">
         <div class="flex flex-col items-center mt-8 gap-4 w-9/12 sm:flex-row sm:justify-around">
             <a href="../index.php?action=main" class="button" type="cancel" class="mt-10">cancel</a>

@@ -74,5 +74,24 @@ function deleteNoteByID($noteID)
     }
 }
 
+function updateNoteContent($noteID, $newTitle, $newContent)
+{
+    $conn = createDatabaseConnection();
+
+    $query = "UPDATE notes SET title = :newTitle, content = :newContent WHERE ID = :noteID";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':newTitle', $newTitle);
+    $stmt->bindParam(':newContent', $newContent);
+    $stmt->bindParam(':noteID', $noteID);
+
+    try {
+        $stmt->execute();
+        return true; // Note update successful
+    } catch (PDOException $e) {
+        return false; // Note update failed
+    }
+}
+
+
 
 ?>

@@ -132,23 +132,41 @@ case 'login':
         }
         break;
     case "edit_entry":
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            header("Location: view/edit-entry.php");
-            exit();
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $newTitle = filter_input(INPUT_POST, 'new-title', FILTER_SANITIZE_SPECIAL_CHARS);
+            $newContent = filter_input(INPUT_POST, 'new-content', FILTER_SANITIZE_SPECIAL_CHARS);
+
+            if (isset($_GET['note_id'])) {
+                $noteID = $_GET['note_id'];
+            } 
+
+            // Update the note with the new title and content
+            if (updateNoteContent($noteID, $newTitle, $newContent)) {
+                // Note update successful, redirect back to the view mode
+                header("Location: index.php?action=edit_entry&note_id=$noteID");
+                exit();
+            } else {
+                // Note update failed, handle accordingly (e.g., show an error message)
+                // For simplicity, we'll just print an error message here.
+                echo "Note update failed.";
+            }
         }
-        else{           
+        else{       
             if (isset($_GET['note_id'])) {
                 // Store the selected note ID in the $_SESSION variable
                 $_SESSION['selected_note_id'] = $_GET['note_id'];
-            }
-            header("Location: view/edit-entry.php");
+            }   
+            if (isset($_GET['edit'])) {
+                // Store the selected note ID in the $_SESSION variable
+                $_SESSION['edit'] = $_GET['edit'];
+            } 
         }
+        header("Location: view/edit-entry.php");
         break;
     case "delete_note":
-        if (isset($_SESSION['selected_note_id'])) {
-            deleteNoteByID($_SESSION['selected_note_id']);
-            unset($_SESSION['selected_note_id']);
-        }
+        if (isset($_GET['note_id'])) {
+            deleteNoteByID($_GET['note_id']);
+        }   
 
         header("Location: view/main.php");
         break;
