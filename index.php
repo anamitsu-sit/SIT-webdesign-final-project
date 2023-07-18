@@ -7,6 +7,7 @@ require_once 'model/notes.php';
 
 session_start();
 
+// hello world
 $action = '';
 
 if (isset($_GET['action'])) {
