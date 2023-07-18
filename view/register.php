@@ -29,10 +29,10 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 
             <input type="text" name="username" placeholder="Username">
             <input type="text" name="fullname" placeholder="Full Name">
-            <!-- TODO: Fix white email and password boxes. -->
             <input type="email" name="email" placeholder="Email"> 
             <input type="password" name="password" placeholder="Password">
             <!-- TODO: Add select form for data_format -->
+            <div class="flex flex-col align-start mt-2">
             <label for="data_format">Choose Data Format:</label>
             <select id="data_format" name="data_format">
                 <option value="d-m-Y">DD-MM-YYYY</option>
@@ -40,8 +40,9 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                 <option value="Y-M-d">YYYY-MM-DD</option>
                 <option value="F d">Month DD</option>
             </select>
+            </div>
 
-            <button type="submit" name="register">Sign Up</button>
+            <button class="button-secondary mt-6" type="submit" name="register">Sign Up</button>
         </form>     
         <!-- TODO: Print error prettier -->
         <span class="error"><?php echo isset($_GET['err']) ? $_GET['err'] : ''; ?></span>

@@ -46,7 +46,7 @@ form {
     align-items: center;
 }
 
-input[type=text] {
+input {
     background-color: #F4D3D3;
     border-bottom: 1px solid rgba(0, 0, 0, .46);
     color: rgba(0, 0, 0, .46);
@@ -54,6 +54,29 @@ input[type=text] {
     font-family: 'Roboto';
     height:42px;
     margin-top: 0.5rem;
+}
+
+input:focus{
+    outline: none;
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, .46);
+}
+
+label {
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, .46);
+}
+
+select {
+    border: solid 1px rgba(0, 0, 0, .46);;
+    border-radius: 5px;
+    padding: 8px;
+    background-color: #F4D3D3;
+    color: rgba(0, 0, 0, .46);
+    font-size: 1rem;
+    font-family: 'Roboto';
 }
 
 .main-banner-form {

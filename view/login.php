@@ -26,9 +26,8 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         <p class="text-5xl">Log In</p>
         <form class="user-form" action="../index.php?action=login" method="post">
             <input type="text" name="username" placeholder="Username">
-            <!-- TODO: Fix white display of password -->
             <input type="password" name="password" placeholder="Password">
-            <button class="button-secondary" type="submit" class="mt-10" name="login">Log In</button>
+            <button class="button-secondary mt-8" type="submit" name="login">Log In</button>
         </form>
         <!-- TODO: Print error prettier! -->
         <span class="error"><?php echo isset($_GET['err']) ? $_GET['err'] : ''; ?></span>
