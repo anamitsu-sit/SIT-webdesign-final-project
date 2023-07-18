@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/final/css/main.css">
     <title>Diary App</title>
 </head>
 
@@ -16,8 +16,8 @@
         <p>to your journaling application</p>
         <div
             class="main-banner-buttons flex flex-col justify-center items-center w-full max-w-screen-sm mt-6 mb-6 gap-y-4 sm:flex-row sm:text-l sm:justify-around">
-            <a class="button" href="login.php"">login</a>
-            <a class="button" href="register.php">sign up</a>
+            <a class="button" href="/final/index.php?action=login">login</a>
+            <a class="button" href="/final/index.php?action=register">sign up</a>
         </div>
     </div>
 </body>
