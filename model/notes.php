@@ -21,4 +21,24 @@ function getNotesForUser($username)
 
     return $notes;
 }
+
+function createNewNote($username, $title, $content)
+{
+    $conn = createDatabaseConnection();
+
+    $query = "INSERT INTO notes (username, title, content) VALUES (:username, :title, :content)";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':title', $title);
+    $stmt->bindParam(':content', $content);
+
+    try {
+        $stmt->execute();
+        return true; // Note creation successful
+    } catch (PDOException $e) {
+        return false; // Note creation failed
+    }
+}
+
+
 ?>

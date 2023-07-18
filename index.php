@@ -3,6 +3,7 @@
 require_once 'model/database.php';
 require_once 'model/register.php';
 require_once 'model/login.php';
+require_once 'model/notes.php';
 
 session_start();
 
@@ -108,7 +109,27 @@ case 'login':
         // Redirect to the login page
         header("Location: index.php?action=welcome");
         break;
-
+    case "new_entry":
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Get the form data
+            $user = $_SESSION['username'];
+            $title = filter_input(INPUT_POST, 'new-title', FILTER_SANITIZE_SPECIAL_CHARS);
+            $content = filter_input(INPUT_POST, 'new-content', FILTER_SANITIZE_SPECIAL_CHARS);
+        
+            // Call the Model function to create a new note
+            if (createNewNote($user, $title, $content)) {
+                // Redirect to the main page after successful note creation
+                header("Location: index.php?action=main");
+                exit();
+            } else {
+                // Handle error if note creation fails
+                echo "Note creation failed.";
+            }
+        }
+        else{
+            header("Location: view/new-entry.php");
+        }
+        break;
 }
 
 ?>

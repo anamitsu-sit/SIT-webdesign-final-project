@@ -1,4 +1,3 @@
-<!-- view/main.php -->
 <?php
 require_once '../model/notes.php';
 session_start();
@@ -41,11 +40,12 @@ $notes = getNotesForUser($user);
                 // Format the date based on the session's date format
                 $note_date = date($date_format, strtotime($date_timestamp));
                 ?>
+                <!-- TODO: Add page that display note, and allow you to delete it or edit? -->
                 <div class="button"><?php echo $note_date; ?></div>
             <?php endforeach; ?>
         </div>
 
-        <a class="button-secondary" href="new-entry.html">Create New Entry</a>
+        <a class="button-secondary" href="../index.php?action=new_entry">Create New Entry</a>
 
         <!-- TODO: Make logout button prettier -->
         <a class="button-secondary" href="../index.php?action=logout">Logout</a>
