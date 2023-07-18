@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    // Redirect to login page if not logged in
+    header("Location: /final/index.php?action=main");
+    exit();
+}
+?>
+
 <!-- TODO: Add back button -->
 <!DOCTYPE html>
 <html>

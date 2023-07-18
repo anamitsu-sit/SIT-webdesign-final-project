@@ -46,7 +46,7 @@ case 'register':
         }
 
         // Check if the username is taken
-        $conn = new PDO($attr, $user, $pass, $opts);
+        $conn = createDatabaseConnection();
         if (isUsernameTaken($username, $conn)) {
             $err = 'Username is taken!';
             header("Location: view/register.php?err=$err");
@@ -74,7 +74,7 @@ case 'login':
         $password = $_POST['password'];
 
         // Login the user
-        $conn = new PDO($attr, $user, $pass, $opts);
+        $conn = createDatabaseConnection();
         $result = loginUser($username, $password, $conn);
         
         if ($result['success']) {
@@ -98,16 +98,17 @@ case 'login':
     }
     break;
     case 'main':
-        if ($_SESSION['logged_in'] === true) {
-            // User is logged in, display the main view
-            header("Location: view/main.php");
-            exit();
-        } else {
-            // Redirect to login page if not logged in
-            header("Location: view/login.php");
-            exit();
-        }
+        header("Location: view/main.php");
+
         break;
+    case "logout":
+        // Destroy the session and logout the user
+        session_destroy();
+
+        // Redirect to the login page
+        header("Location: /final/index.php?action=welcome");
+        break;
+
 }
 
 ?>
