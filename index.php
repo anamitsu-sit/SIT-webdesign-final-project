@@ -1,5 +1,4 @@
 <?php
-// M
 require_once 'model/database.php';
 require_once 'model/register.php';
 require_once 'model/login.php';
@@ -7,9 +6,7 @@ require_once 'model/notes.php';
 
 session_start();
 
-// hello world
 $action = '';
-
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 }
@@ -19,6 +16,7 @@ elseif (isset($_POST['action'])) {
 else{
     $action = 'welcome';
 }
+
 
 switch($action)
 {
@@ -33,16 +31,15 @@ case 'register':
         $fullname = filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_SPECIAL_CHARS);
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $date_format = 'date_format';
+        $date_format = $_POST['data_format'];
 
         if (!isUsernameValid($username)) {
-            $err = 'Invalid usernamee!';
+            $err = 'Invalid username!';
             header("Location: view/register.php?err=$err");
             exit();
         }
-
         if (!isEmailValid($email)) {
-            $err = 'Invalid emaill!';
+            $err = 'Invalid email!';
             header("Location: view/register.php?err=$err");
             exit();
         }
@@ -107,7 +104,7 @@ case 'login':
         // Destroy the session and logout the user
         session_destroy();
 
-        // Redirect to the login page
+        // Redirect to the welcome page
         header("Location: index.php?action=welcome");
         break;
     case "new_entry":
@@ -123,7 +120,6 @@ case 'login':
                 header("Location: index.php?action=main");
                 exit();
             } else {
-                // Handle error if note creation fails
                 echo "Note creation failed.";
             }
         }
@@ -146,8 +142,6 @@ case 'login':
                 header("Location: index.php?action=edit_entry&note_id=$noteID");
                 exit();
             } else {
-                // Note update failed, handle accordingly (e.g., show an error message)
-                // For simplicity, we'll just print an error message here.
                 echo "Note update failed.";
             }
         }

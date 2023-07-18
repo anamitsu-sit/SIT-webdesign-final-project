@@ -34,9 +34,9 @@ function createNewNote($username, $title, $content)
 
     try {
         $stmt->execute();
-        return true; // Note creation successful
+        return true;
     } catch (PDOException $e) {
-        return false; // Note creation failed
+        return false; 
     }
 }
 
@@ -44,7 +44,7 @@ function getNote($noteID)
 {
     $conn = createDatabaseConnection();
 
-    $query = "SELECT content, title FROM notes WHERE ID = :noteID";
+    $query = "SELECT content, title, username as user FROM notes WHERE ID = :noteID";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':noteID', $noteID);
     $stmt->execute();
@@ -68,9 +68,9 @@ function deleteNoteByID($noteID)
 
     try {
         $stmt->execute();
-        return true; // Note deletion successful
+        return true; 
     } catch (PDOException $e) {
-        return false; // Note deletion failed
+        return false; 
     }
 }
 
@@ -86,9 +86,9 @@ function updateNoteContent($noteID, $newTitle, $newContent)
 
     try {
         $stmt->execute();
-        return true; // Note update successful
+        return true; 
     } catch (PDOException $e) {
-        return false; // Note update failed
+        return false; 
     }
 }
 

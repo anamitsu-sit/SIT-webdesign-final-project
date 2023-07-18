@@ -1,4 +1,4 @@
-<?php // database.php
+<?php
 function createDatabaseConnection()
 {
     $host = 'localhost';

@@ -1,5 +1,4 @@
 <?php
-// model/login.php
 
 require_once 'database.php';
 

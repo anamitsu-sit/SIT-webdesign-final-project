@@ -1,5 +1,4 @@
 <?php
-// model/register.php
 
 require_once 'database.php';
 

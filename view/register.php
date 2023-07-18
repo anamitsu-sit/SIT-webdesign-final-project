@@ -33,9 +33,17 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             <input type="email" name="email" placeholder="Email"> 
             <input type="password" name="password" placeholder="Password">
             <!-- TODO: Add select form for data_format -->
+            <label for="data_format">Choose Data Format:</label>
+            <select id="data_format" name="data_format">
+                <option value="d-m-Y">DD-MM-YYYY</option>
+                <option value="m-d-Y">MM-DD-YYYY</option>
+                <option value="Y-M-d">YYYY-MM-DD</option>
+                <option value="F d">Month DD</option>
+            </select>
+
             <button type="submit" name="register">Sign Up</button>
         </form>     
-        <!-- TODO: Print error prettier! -->
+        <!-- TODO: Print error prettier -->
         <span class="error"><?php echo isset($_GET['err']) ? $_GET['err'] : ''; ?></span>
     
     </div>

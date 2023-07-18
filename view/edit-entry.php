@@ -14,33 +14,23 @@ unset($_SESSION['selected_note_id']);
 
 $note = getNote($noteID);
 
+$userNote = $note['user'];
+if($userNote !== $user){
+    // User trying to access someones else note.
+    header("Location: ../index.php?action=main");
+    exit();
+}
+
 if ($note) {
     $noteContent = $note['content'];
     $noteTitle = $note['title'];
 } else {
-    // Handle the case when the note is not found
-    // For example, redirect back to the main page or show an error message
     header("Location: ../index.php?action=main");
     exit();
 }
 
 $isEditing = isset($_SESSION['edit']) && $_SESSION['edit'] === 'true';
 unset($_SESSION['edit']);
-
-// Save changes if the form is submitted
-// if ($isEditing && $_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $newTitle = $_POST['new-title'];
-//     $newContent = $_POST['new-content'];
-
-//     // Update the note with the new title and content
-//     // Here, you should call a function to update the note in the database
-//     // For example: updateNoteContent($noteID, $newTitle, $newContent);
-//     // Implement the updateNoteContent() function accordingly
-
-//     // After saving changes, redirect back to the view mode
-//     header("Location: ../index.php?action=edit_entry&note_id=$noteID");
-//     exit();
-// }
 
 ?>
 
