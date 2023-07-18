@@ -27,6 +27,14 @@ $notes = getNotesForUser($user);
 </head>
 
 <body class="text-xl">
+    <nav class="flex justify-end px-20 py-5 items-center">
+        <div class="flex items-center">
+            <ul class="flex items-center space-x-6">
+            <li class="font-semibold"><a href="index.html">home</a></li>
+            <li class="font-semibold"><a href="main.php">my entries</a></li>
+            </ul>
+        </div>
+    </nav>
     <div class="main-banner w-screen flex flex-col justify-center items-center mt-10">
         <p class="text-5xl">Welcome <?php echo $_SESSION['full_name']; ?></p>
 

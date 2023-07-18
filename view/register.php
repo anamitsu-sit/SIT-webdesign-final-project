@@ -21,7 +21,17 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     <title>Diary App</title>
 </head>
 
-<body class="text-xl w-full h-screen flex justify-center items-center">
+<body>
+    <nav class="flex justify-end px-20 py-5 items-center">
+        <div class="flex items-center">
+        <ul class="flex items-center space-x-6">
+            <li class="font-semibold"><a href="welcome.php">home</a></li>
+            <li class="font-semibold"><a href="login.php">login</a></li>
+            <li class="font-semibold"><a href="register.php">sign up</a></li>
+            </ul>
+        </div>
+    </nav>    
+<div class="text-xl w-full flex justify-center items-center">
     <div class="main-banner-form">
         <p class="text-5xl">sign up</p>
 
@@ -31,7 +41,6 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             <input type="text" name="fullname" placeholder="Full Name">
             <input type="email" name="email" placeholder="Email"> 
             <input type="password" name="password" placeholder="Password">
-            <!-- TODO: Add select form for data_format -->
             <div class="flex flex-col align-start mt-2">
             <label for="data_format">Choose Data Format:</label>
             <select id="data_format" name="data_format">
@@ -42,11 +51,12 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             </select>
             </div>
 
-            <button class="button-secondary mt-6" type="submit" name="register">Sign Up</button>
+            <button class="button-secondary mt-2" type="submit" name="register">Sign Up</button>
         </form>     
         <!-- TODO: Print error prettier -->
         <span class="error"><?php echo isset($_GET['err']) ? $_GET['err'] : ''; ?></span>
     
+    </div>
     </div>
 </body>
 

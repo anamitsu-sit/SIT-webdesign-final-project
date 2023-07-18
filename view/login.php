@@ -21,7 +21,17 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     <title>Diary App</title>
 </head>
 
-<body class="text-xl w-full h-screen flex justify-center items-center">
+<body>
+    <nav class="flex justify-end px-20 py-5 items-center">
+        <div class="flex items-center">
+            <ul class="flex items-center space-x-6">
+            <li class="font-semibold"><a href="welcome.php">home</a></li>
+            <li class="font-semibold"><a href="login.php">login</a></li>
+            <li class="font-semibold"><a href="register.php">sign up</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="text-xl w-full flex justify-center items-center">
     <div class="main-banner-form">
         <p class="text-5xl">Log In</p>
         <form class="user-form" action="../index.php?action=login" method="post">
@@ -31,6 +41,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         </form>
         <!-- TODO: Print error prettier! -->
         <span class="error"><?php echo isset($_GET['err']) ? $_GET['err'] : ''; ?></span>
+    </div>
     </div>
 </body>
 

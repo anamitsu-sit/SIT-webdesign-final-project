@@ -20,6 +20,15 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 </head>
 
 <body class="text-xl">
+    <nav class="flex justify-end px-20 py-5 items-center">
+        <div class="flex items-center">
+        <ul class="flex items-center space-x-6">
+            <li class="font-semibold"><a href="welcome.php">home</a></li>
+            <li class="font-semibold"><a href="login.php">login</a></li>
+            <li class="font-semibold"><a href="register.php">sign up</a></li>
+            </ul>
+        </div>
+    </nav>
     <div class="main-banner h-screen w-screen flex flex-col justify-center items-center">
         <p class="text-5xl">welcome</p>
         <p>to your journaling application</p>

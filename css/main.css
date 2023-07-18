@@ -79,6 +79,12 @@ select {
     font-family: 'Roboto';
 }
 
+textarea {
+    color: rgba(0, 0, 0, .46);
+    font-size: 1rem;
+    padding: 5px;
+}
+
 .main-banner-form {
     border: solid 2px #090580;
     display: flex;
@@ -101,4 +107,9 @@ select {
     max-height: 280px;
     width: 60rem;
     max-width: 70%;
+}
+
+#entry-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }

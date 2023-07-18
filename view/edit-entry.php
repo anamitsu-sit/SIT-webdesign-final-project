@@ -46,8 +46,16 @@ unset($_SESSION['edit']);
     <title>Diary App</title>
 </head>
 
-<body class="text-xl w-full h-screen flex flex-col justify-center items-center">
-    
+<body>
+    <nav class="flex justify-end px-20 py-5 items-center">
+        <div class="flex items-center">
+            <ul class="flex items-center space-x-6">
+            <li class="font-semibold"><a href="index.html">home</a></li>
+            <li class="font-semibold"><a href="main.php">my entries</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="text-xl w-full flex flex-col justify-center items-center">
     <?php if ($isEditing) : ?>
         <form class="user-form" method="POST" action="../index.php?action=edit_entry&note_id=<?php echo $noteID; ?>">
             <input type="text" id="entry-title" name="new-title" placeholder="Title" value="<?php echo $noteTitle; ?>">
@@ -69,6 +77,7 @@ unset($_SESSION['edit']);
             <a href="../index.php?action=delete_note&note_id=<?php echo $noteID; ?>" class="button-secondary">Delete Note</a>
         </div>
     <?php endif; ?>
+    </div>
 
 
 </body>
