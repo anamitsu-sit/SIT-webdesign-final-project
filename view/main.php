@@ -27,7 +27,15 @@ $notes = getNotesForUser($user);
 </head>
 
 <body class="text-xl">
-    <div class="main-banner h-screen w-screen flex flex-col justify-center items-center">
+    <nav class="flex justify-end px-20 py-5 items-center">
+        <div class="flex items-center">
+            <ul class="flex items-center space-x-6">
+            <li class="font-semibold"><a href="index.html">home</a></li>
+            <li class="font-semibold"><a href="main.php">my entries</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main-banner w-screen flex flex-col justify-center items-center mt-10">
         <p class="text-5xl">Welcome <?php echo $_SESSION['full_name']; ?></p>
 
         <div class="entries my-10 mx-8 flex flex-wrap justify-around gap-4">
@@ -46,10 +54,10 @@ $notes = getNotesForUser($user);
             <?php endforeach; ?>
         </div>
 
-        <a class="button-secondary" href="../index.php?action=new_entry">Create New Entry</a>
-
-        <!-- TODO: Make logout button prettier -->
-        <a class="button-secondary" href="../index.php?action=logout">Logout</a>
+        <div class="flex gap-x-4 pb-10">
+            <a class="button-secondary" href="../index.php?action=new_entry">Create New Entry</a>
+            <a class="button-secondary" href="../index.php?action=logout">Logout</a>
+        </div>
     </div>
 </body>
 
